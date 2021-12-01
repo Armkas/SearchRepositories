@@ -16,17 +16,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxv-g4-tnb">
-                                <rect key="frame" x="176" y="343" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-Bw-wf0">
+                                <rect key="frame" x="50" y="94" width="314" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xfB-E4-dRT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mi0-hk-ro5">
+                                <rect key="frame" x="20" y="164" width="374" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="YLg-Qf-SV6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="D4D-Bw-wf0" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" constant="50" id="D26-2f-Zaf"/>
+                            <constraint firstItem="mi0-hk-ro5" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" constant="20" id="Jze-Sl-YAM"/>
+                            <constraint firstItem="D4D-Bw-wf0" firstAttribute="top" secondItem="YLg-Qf-SV6" secondAttribute="top" constant="50" id="KVS-je-XHM"/>
+                            <constraint firstItem="YLg-Qf-SV6" firstAttribute="bottom" secondItem="mi0-hk-ro5" secondAttribute="bottom" id="Wja-gf-hFF"/>
+                            <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="D4D-Bw-wf0" secondAttribute="trailing" constant="50" id="aou-TX-EzA"/>
+                            <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="mi0-hk-ro5" secondAttribute="trailing" constant="20" id="mWZ-WN-o0D"/>
+                            <constraint firstItem="mi0-hk-ro5" firstAttribute="top" secondItem="D4D-Bw-wf0" secondAttribute="bottom" constant="20" id="rlQ-jg-qGI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="mi0-hk-ro5" id="Ohy-b4-yao"/>
+                        <outlet property="textField" destination="D4D-Bw-wf0" id="ASS-w0-SN8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,6 +16,8 @@
 		CEDD55922757C569009F79F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEDD55902757C569009F79F8 /* LaunchScreen.storyboard */; };
 		CEDD559D2757C56A009F79F8 /* SearchRepositoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD559C2757C56A009F79F8 /* SearchRepositoriesTests.swift */; };
 		CEDD55A82757C56A009F79F8 /* SearchRepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55A72757C56A009F79F8 /* SearchRepositoriesUITests.swift */; };
+		CEDD55B62757D826009F79F8 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD55B52757D826009F79F8 /* Cell.xib */; };
+		CEDD55B82757D843009F79F8 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55B72757D843009F79F8 /* Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		CEDD55A32757C56A009F79F8 /* SearchRepositoriesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchRepositoriesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDD55A72757C56A009F79F8 /* SearchRepositoriesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesUITests.swift; sourceTree = "<group>"; };
 		CEDD55A92757C56A009F79F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CEDD55B52757D826009F79F8 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		CEDD55B72757D843009F79F8 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				CEDD55902757C569009F79F8 /* LaunchScreen.storyboard */,
 				CEDD55932757C569009F79F8 /* Info.plist */,
 				CEDD558B2757C567009F79F8 /* SearchRepositories.xcdatamodeld */,
+				CEDD55B52757D826009F79F8 /* Cell.xib */,
+				CEDD55B72757D843009F79F8 /* Cell.swift */,
 			);
 			path = SearchRepositories;
 			sourceTree = "<group>";
@@ -235,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEDD55922757C569009F79F8 /* LaunchScreen.storyboard in Resources */,
+				CEDD55B62757D826009F79F8 /* Cell.xib in Resources */,
 				CEDD558F2757C569009F79F8 /* Assets.xcassets in Resources */,
 				CEDD558A2757C567009F79F8 /* Main.storyboard in Resources */,
 			);
@@ -263,6 +270,7 @@
 			files = (
 				CEDD55872757C567009F79F8 /* ViewController.swift in Sources */,
 				CEDD558D2757C567009F79F8 /* SearchRepositories.xcdatamodeld in Sources */,
+				CEDD55B82757D843009F79F8 /* Cell.swift in Sources */,
 				CEDD55832757C567009F79F8 /* AppDelegate.swift in Sources */,
 				CEDD55852757C567009F79F8 /* SceneDelegate.swift in Sources */,
 			);
