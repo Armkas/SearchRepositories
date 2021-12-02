@@ -16,14 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D4D-Bw-wf0">
-                                <rect key="frame" x="50" y="94" width="314" height="50"/>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uzQ-XW-FhW">
+                                <rect key="frame" x="0.0" y="94" width="414" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="xfB-E4-dRT"/>
+                                    <constraint firstAttribute="height" constant="50" id="Qyx-iH-Byj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mi0-hk-ro5">
                                 <rect key="frame" x="20" y="164" width="374" height="698"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -32,18 +31,19 @@
                         <viewLayoutGuide key="safeArea" id="YLg-Qf-SV6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="D4D-Bw-wf0" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" constant="50" id="D26-2f-Zaf"/>
+                            <constraint firstItem="uzQ-XW-FhW" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" id="J0U-fn-3SW"/>
                             <constraint firstItem="mi0-hk-ro5" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" constant="20" id="Jze-Sl-YAM"/>
-                            <constraint firstItem="D4D-Bw-wf0" firstAttribute="top" secondItem="YLg-Qf-SV6" secondAttribute="top" constant="50" id="KVS-je-XHM"/>
+                            <constraint firstItem="uzQ-XW-FhW" firstAttribute="top" secondItem="YLg-Qf-SV6" secondAttribute="top" constant="50" id="Kxz-E5-8Eg"/>
+                            <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="uzQ-XW-FhW" secondAttribute="trailing" id="PYY-BN-gX0"/>
+                            <constraint firstItem="mi0-hk-ro5" firstAttribute="top" secondItem="uzQ-XW-FhW" secondAttribute="bottom" constant="20" id="TFm-38-5LV"/>
+                            <constraint firstItem="uzQ-XW-FhW" firstAttribute="centerX" secondItem="YLg-Qf-SV6" secondAttribute="centerX" id="Tw1-Ox-NUw"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="bottom" secondItem="mi0-hk-ro5" secondAttribute="bottom" id="Wja-gf-hFF"/>
-                            <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="D4D-Bw-wf0" secondAttribute="trailing" constant="50" id="aou-TX-EzA"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="mi0-hk-ro5" secondAttribute="trailing" constant="20" id="mWZ-WN-o0D"/>
-                            <constraint firstItem="mi0-hk-ro5" firstAttribute="top" secondItem="D4D-Bw-wf0" secondAttribute="bottom" constant="20" id="rlQ-jg-qGI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="uzQ-XW-FhW" id="ttJ-aB-6xr"/>
                         <outlet property="tableView" destination="mi0-hk-ro5" id="Ohy-b4-yao"/>
-                        <outlet property="textField" destination="D4D-Bw-wf0" id="ASS-w0-SN8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

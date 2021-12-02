@@ -18,6 +18,7 @@
 		CEDD55A82757C56A009F79F8 /* SearchRepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55A72757C56A009F79F8 /* SearchRepositoriesUITests.swift */; };
 		CEDD55B62757D826009F79F8 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD55B52757D826009F79F8 /* Cell.xib */; };
 		CEDD55B82757D843009F79F8 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55B72757D843009F79F8 /* Cell.swift */; };
+		CEDD55BE2758E876009F79F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55BD2758E876009F79F8 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		CEDD55A92757C56A009F79F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDD55B52757D826009F79F8 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		CEDD55B72757D843009F79F8 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		CEDD55BD2758E876009F79F8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,16 +107,15 @@
 		CEDD55812757C567009F79F8 /* SearchRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD55BB2758E831009F79F8 /* Model */,
+				CEDD55BA2758E827009F79F8 /* API */,
+				CEDD55B92758E80B009F79F8 /* UI */,
 				CEDD55822757C567009F79F8 /* AppDelegate.swift */,
 				CEDD55842757C567009F79F8 /* SceneDelegate.swift */,
-				CEDD55862757C567009F79F8 /* ViewController.swift */,
-				CEDD55882757C567009F79F8 /* Main.storyboard */,
 				CEDD558E2757C569009F79F8 /* Assets.xcassets */,
 				CEDD55902757C569009F79F8 /* LaunchScreen.storyboard */,
 				CEDD55932757C569009F79F8 /* Info.plist */,
 				CEDD558B2757C567009F79F8 /* SearchRepositories.xcdatamodeld */,
-				CEDD55B52757D826009F79F8 /* Cell.xib */,
-				CEDD55B72757D843009F79F8 /* Cell.swift */,
 			);
 			path = SearchRepositories;
 			sourceTree = "<group>";
@@ -135,6 +136,40 @@
 				CEDD55A92757C56A009F79F8 /* Info.plist */,
 			);
 			path = SearchRepositoriesUITests;
+			sourceTree = "<group>";
+		};
+		CEDD55B92758E80B009F79F8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD55BC2758E851009F79F8 /* Cell */,
+				CEDD55862757C567009F79F8 /* ViewController.swift */,
+				CEDD55882757C567009F79F8 /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		CEDD55BA2758E827009F79F8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD55BD2758E876009F79F8 /* API.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CEDD55BB2758E831009F79F8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CEDD55BC2758E851009F79F8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD55B52757D826009F79F8 /* Cell.xib */,
+				CEDD55B72757D843009F79F8 /* Cell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +307,7 @@
 				CEDD558D2757C567009F79F8 /* SearchRepositories.xcdatamodeld in Sources */,
 				CEDD55B82757D843009F79F8 /* Cell.swift in Sources */,
 				CEDD55832757C567009F79F8 /* AppDelegate.swift in Sources */,
+				CEDD55BE2758E876009F79F8 /* API.swift in Sources */,
 				CEDD55852757C567009F79F8 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
