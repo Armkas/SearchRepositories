@@ -19,4 +19,8 @@ class Cell: UITableViewCell {
         
     }
     
+    func configure(_ repository: Repository) {
+        self.title.text = repository.name
+        self.detail.text = repository.full_name
+    }
 }

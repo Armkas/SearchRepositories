@@ -14,7 +14,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var timer: Timer?
-    var searchRepository: [NSDictionary] = []
+    var repositories: [Repository] = []
     private var lastSearchedText = ""
 
     override func viewDidLoad() {
@@ -40,7 +40,13 @@ final class ViewController: UIViewController {
         if let text = searchBar.text,
            text != lastSearchedText,
            text != "" {
-            API.shared.getRepositories(text)
+            API.shared.getRepositories(text: text) { data in
+                DispatchQueue.main.async {
+                    let repositories = try? JSONDecoder().decode(Repositories.self, from: data)
+                    self.repositories += repositories?.items ?? []
+                    self.tableView.reloadData()
+                }
+            }
             lastSearchedText = text
         }
     }
@@ -74,14 +80,12 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchRepository.count
+        return repositories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
-        let dictionary: NSDictionary = searchRepository[indexPath.row]
-        cell.textLabel?.text = dictionary["name"] as? String
-        cell.detailTextLabel?.text = dictionary["full_name"] as? String
+        cell.configure(repositories[indexPath.row])
         return cell
     }
 }

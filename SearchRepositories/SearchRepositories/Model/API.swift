@@ -11,7 +11,7 @@ final class API {
     
     static let shared = API()
     
-    func getRepositories(_ text: String) {
+    func getRepositories(text: String, completion: @escaping (Data) -> Void)  {//允许逃逸不然报错
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.github.com"
@@ -47,14 +47,18 @@ final class API {
                     print("API Get NO Data")
                     return
                 }
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                    print("API Get Data successful" , json)
-                } catch {
-                    print("API Get Wrong Data")
-                }
+                print("API Get Data successful")
+                completion(data)
+//                do {
+//                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+//                    print("API Get Data successful")
+//                    completion(data)
+//                } catch {
+//                    print("API Get error", error.localizedDescription)
+//                }
+            } else {
+                print("API Fail", response.statusCode)
             }
-            print("API Fail", response.statusCode)
         }.resume()
         
     }
