@@ -26,6 +26,7 @@ final class ViewController: UIViewController {
     
     private func setupSearchBar() {
         searchBar.delegate = self
+        searchBar.autocapitalizationType = .none
 //        searchBar.isSearchResultsButtonSelected = true
 //        searchBar.showsSearchResultsButton = true
 //        searchBar.showsCancelButton = true
@@ -43,7 +44,7 @@ final class ViewController: UIViewController {
             API.shared.getRepositories(text: text) { data in
                 DispatchQueue.main.async {
                     let repositories = try? JSONDecoder().decode(Repositories.self, from: data)
-                    self.repositories += repositories?.items ?? []
+                    self.repositories = repositories?.items ?? []
                     self.tableView.reloadData()
                 }
             }

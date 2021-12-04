@@ -24,7 +24,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mi0-hk-ro5">
-                                <rect key="frame" x="20" y="164" width="374" height="698"/>
+                                <rect key="frame" x="20" y="144" width="374" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -35,7 +35,7 @@
                             <constraint firstItem="mi0-hk-ro5" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" constant="20" id="Jze-Sl-YAM"/>
                             <constraint firstItem="uzQ-XW-FhW" firstAttribute="top" secondItem="YLg-Qf-SV6" secondAttribute="top" constant="50" id="Kxz-E5-8Eg"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="uzQ-XW-FhW" secondAttribute="trailing" id="PYY-BN-gX0"/>
-                            <constraint firstItem="mi0-hk-ro5" firstAttribute="top" secondItem="uzQ-XW-FhW" secondAttribute="bottom" constant="20" id="TFm-38-5LV"/>
+                            <constraint firstItem="mi0-hk-ro5" firstAttribute="top" secondItem="uzQ-XW-FhW" secondAttribute="bottom" id="TFm-38-5LV"/>
                             <constraint firstItem="uzQ-XW-FhW" firstAttribute="centerX" secondItem="YLg-Qf-SV6" secondAttribute="centerX" id="Tw1-Ox-NUw"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="bottom" secondItem="mi0-hk-ro5" secondAttribute="bottom" id="Wja-gf-hFF"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="mi0-hk-ro5" secondAttribute="trailing" constant="20" id="mWZ-WN-o0D"/>

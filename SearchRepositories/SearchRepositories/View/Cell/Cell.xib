@@ -9,33 +9,36 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Z94-ZG-0Th" customClass="Cell" customModule="SearchRepositories" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="88" id="Z94-ZG-0Th" customClass="Cell" customModule="SearchRepositories" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z94-ZG-0Th" id="8uK-zU-urL">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roX-ZG-3Qp">
-                        <rect key="frame" x="20" y="11.5" width="374" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P60-jn-bxu">
-                        <rect key="frame" x="352" y="11.5" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kmp-sI-iy3">
+                        <rect key="frame" x="0.0" y="8" width="414" height="72"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roX-ZG-3Qp">
+                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P60-jn-bxu">
+                                <rect key="frame" x="0.0" y="24.5" width="41.5" height="47.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="roX-ZG-3Qp" firstAttribute="centerX" secondItem="8uK-zU-urL" secondAttribute="centerX" id="1KC-av-aEA"/>
-                    <constraint firstItem="roX-ZG-3Qp" firstAttribute="leading" secondItem="8uK-zU-urL" secondAttribute="leading" constant="20" id="Dl9-u8-zdy"/>
-                    <constraint firstItem="P60-jn-bxu" firstAttribute="centerY" secondItem="8uK-zU-urL" secondAttribute="centerY" id="G7c-tF-epj"/>
-                    <constraint firstItem="roX-ZG-3Qp" firstAttribute="centerX" secondItem="8uK-zU-urL" secondAttribute="centerX" id="R2R-F6-XnN"/>
-                    <constraint firstItem="roX-ZG-3Qp" firstAttribute="centerY" secondItem="8uK-zU-urL" secondAttribute="centerY" id="m9U-Pl-7qq"/>
-                    <constraint firstAttribute="trailing" secondItem="P60-jn-bxu" secondAttribute="trailing" constant="20" id="rsC-NL-Gzs"/>
+                    <constraint firstAttribute="bottom" secondItem="kmp-sI-iy3" secondAttribute="bottom" constant="8" id="Io0-to-bdm"/>
+                    <constraint firstAttribute="trailing" secondItem="kmp-sI-iy3" secondAttribute="trailing" id="UFP-R5-Iz3"/>
+                    <constraint firstItem="kmp-sI-iy3" firstAttribute="top" secondItem="8uK-zU-urL" secondAttribute="top" constant="8" id="mm3-jv-dEj"/>
+                    <constraint firstItem="kmp-sI-iy3" firstAttribute="leading" secondItem="8uK-zU-urL" secondAttribute="leading" id="zQh-k6-3IQ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="jmd-rG-AWE"/>
@@ -43,7 +46,7 @@
                 <outlet property="detail" destination="P60-jn-bxu" id="nxE-af-toy"/>
                 <outlet property="title" destination="roX-ZG-3Qp" id="CpX-Ji-ZUU"/>
             </connections>
-            <point key="canvasLocation" x="-488" y="-253"/>
+            <point key="canvasLocation" x="-488.40579710144931" y="-238.39285714285714"/>
         </tableViewCell>
     </objects>
 </document>
