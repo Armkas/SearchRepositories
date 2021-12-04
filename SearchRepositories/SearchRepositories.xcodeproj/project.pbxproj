@@ -108,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				CEDD55BB2758E831009F79F8 /* Model */,
-				CEDD55BA2758E827009F79F8 /* API */,
-				CEDD55B92758E80B009F79F8 /* UI */,
+				CEEA8B3D275A4A4E0078B8D4 /* View */,
+				CEEA8B3C275A4A460078B8D4 /* Controller */,
 				CEDD55822757C567009F79F8 /* AppDelegate.swift */,
 				CEDD55842757C567009F79F8 /* SceneDelegate.swift */,
 				CEDD558E2757C569009F79F8 /* Assets.xcassets */,
@@ -138,27 +138,10 @@
 			path = SearchRepositoriesUITests;
 			sourceTree = "<group>";
 		};
-		CEDD55B92758E80B009F79F8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				CEDD55BC2758E851009F79F8 /* Cell */,
-				CEDD55862757C567009F79F8 /* ViewController.swift */,
-				CEDD55882757C567009F79F8 /* Main.storyboard */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		CEDD55BA2758E827009F79F8 /* API */ = {
-			isa = PBXGroup;
-			children = (
-				CEDD55BD2758E876009F79F8 /* API.swift */,
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		CEDD55BB2758E831009F79F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD55BD2758E876009F79F8 /* API.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -170,6 +153,23 @@
 				CEDD55B72757D843009F79F8 /* Cell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		CEEA8B3C275A4A460078B8D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD55862757C567009F79F8 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CEEA8B3D275A4A4E0078B8D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD55BC2758E851009F79F8 /* Cell */,
+				CEDD55882757C567009F79F8 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

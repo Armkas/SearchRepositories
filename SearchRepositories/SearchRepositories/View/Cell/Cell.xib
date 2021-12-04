@@ -17,18 +17,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="roX-ZG-3Qp">
-                        <rect key="frame" x="186" y="11.5" width="42" height="21"/>
+                        <rect key="frame" x="20" y="11.5" width="374" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P60-jn-bxu">
+                        <rect key="frame" x="352" y="11.5" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="roX-ZG-3Qp" firstAttribute="centerX" secondItem="8uK-zU-urL" secondAttribute="centerX" id="1KC-av-aEA"/>
+                    <constraint firstItem="roX-ZG-3Qp" firstAttribute="leading" secondItem="8uK-zU-urL" secondAttribute="leading" constant="20" id="Dl9-u8-zdy"/>
+                    <constraint firstItem="P60-jn-bxu" firstAttribute="centerY" secondItem="8uK-zU-urL" secondAttribute="centerY" id="G7c-tF-epj"/>
                     <constraint firstItem="roX-ZG-3Qp" firstAttribute="centerX" secondItem="8uK-zU-urL" secondAttribute="centerX" id="R2R-F6-XnN"/>
                     <constraint firstItem="roX-ZG-3Qp" firstAttribute="centerY" secondItem="8uK-zU-urL" secondAttribute="centerY" id="m9U-Pl-7qq"/>
+                    <constraint firstAttribute="trailing" secondItem="P60-jn-bxu" secondAttribute="trailing" constant="20" id="rsC-NL-Gzs"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="jmd-rG-AWE"/>
+            <connections>
+                <outlet property="detail" destination="P60-jn-bxu" id="nxE-af-toy"/>
+                <outlet property="title" destination="roX-ZG-3Qp" id="CpX-Ji-ZUU"/>
+            </connections>
             <point key="canvasLocation" x="-488" y="-253"/>
         </tableViewCell>
     </objects>
