@@ -13,14 +13,23 @@ class Cell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var detail: UILabel!
     
+    private var urlString: String = ""
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        urlString = ""
     }
     
     func configure(_ repository: Repository) {
         self.title.text = repository.name
         self.detail.text = repository.full_name
+        self.urlString = repository.html_url
+    }
+    
+    func openUrl() {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
     }
 }

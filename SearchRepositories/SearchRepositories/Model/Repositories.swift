@@ -16,4 +16,5 @@ struct Repositories: Codable {
 struct Repository: Codable {
     let name: String
     let full_name: String
+    let html_url: String
 }

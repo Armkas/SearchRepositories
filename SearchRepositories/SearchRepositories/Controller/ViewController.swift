@@ -35,6 +35,7 @@ final class ViewController: UIViewController {
     private func setupTableView() {
         tableView.register(UINib(nibName: "Cell", bundle: .main), forCellReuseIdentifier: "Cell")
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     @objc func getRepositories() {
@@ -88,5 +89,13 @@ extension ViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
         cell.configure(repositories[indexPath.row])
         return cell
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell: Cell = tableView.cellForRow(at: indexPath) as? Cell {
+            cell.openUrl()
+        }
     }
 }
