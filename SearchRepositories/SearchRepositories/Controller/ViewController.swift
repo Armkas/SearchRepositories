@@ -13,10 +13,11 @@ final class ViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    var timer: Timer?
-    var repositories: [Repository] = []
+    private var timer: Timer?
+    private var repositories: [Repository] = []
     private var lastSearchedText = ""
-
+    private var isRequesting: Bool = false // Wait for the server to respond before making the next request
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +26,7 @@ final class ViewController: UIViewController {
     }
     
     private func setupSearchBar() {
+        searchBar.keyboardType = .webSearch
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
 //        searchBar.isSearchResultsButtonSelected = true
@@ -38,18 +40,36 @@ final class ViewController: UIViewController {
         tableView.delegate = self
     }
     
+    private func getKeyword() -> String? {
+        // Remove space at the beginning and end of keyword, eg: "  abc  " -> "abc"
+        // Guard empty string, eg: ""
+        // Guard string that only has whitespace, eg: "   "
+        guard let text = searchBar.text else { return nil }
+        let keyword = text.trimmingCharacters(in: .whitespaces)
+        guard !keyword.isEmpty else { return nil }
+        return keyword
+    }
+    
     @objc func getRepositories() {
-        if let text = searchBar.text,
-           text != lastSearchedText,
-           text != "" {
-            API.shared.getRepositories(text: text) { data in
-                DispatchQueue.main.async {
+        if !isRequesting,
+           let text = getKeyword(),
+           text != lastSearchedText {
+            isRequesting = true
+            API.shared.getRepositories(text: text) { data, error in
+                self.lastSearchedText = text
+                self.isRequesting = false
+//                self.searchBar.text = text
+                if let data = data {
                     let repositories = try? JSONDecoder().decode(Repositories.self, from: data)
                     self.repositories = repositories?.items ?? []
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async { [self] in
+                        self.tableView.reloadData()
+                    }
+                }
+                if let error = error {
+                    self.showToast(error.localizedDescription)
                 }
             }
-            lastSearchedText = text
         }
     }
 }
@@ -66,18 +86,7 @@ extension ViewController: UISearchBarDelegate {
             repeats: false
         )
     }
-    
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        timer?.invalidate()
-//        timer = Timer.scheduledTimer(
-//            timeInterval: 0.5,
-//            target: self,
-//            selector: #selector(self.getRepositories),
-//            userInfo: nil,
-//            repeats: false
-//        )
-//    }
-    
+
 }
 
 extension ViewController: UITableViewDataSource {

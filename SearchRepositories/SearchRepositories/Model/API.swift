@@ -11,17 +11,17 @@ final class API {
     
     static let shared = API()
     
-    func getRepositories(text: String, completion: @escaping (Data) -> Void)  {//允许逃逸不然报错
+    func getRepositories(text: String, completion: @escaping (Data?, Error?) -> Void)  {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.github.com"
         urlComponents.path = "/search/repositories"
         urlComponents.queryItems = [
             URLQueryItem(name: "q", value: "\(text)"),
-            //            URLQueryItem(name: "sort", value: "desc"),
-            //            URLQueryItem(name: "order", value: "best match"),
-            //            URLQueryItem(name: "page", value: "1"),
-            //            URLQueryItem(name: "per_page", value: "30"),
+                        URLQueryItem(name: "sort", value: "desc"),
+                        URLQueryItem(name: "order", value: "best match"),
+                        URLQueryItem(name: "page", value: "1"),
+                        URLQueryItem(name: "per_page", value: "30"),
         ]
         guard let url = urlComponents.url else { return }
         
@@ -32,34 +32,37 @@ final class API {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
-                print("API Error =", error.localizedDescription)
+                print("API Error =", error.localizedDescription)//圏外
+                completion(nil, error)
                 return
             }
             
             guard let response = response as? HTTPURLResponse else {
-                print("API Get Nothing")
                 return
             }
             
-            if response.statusCode == 200 {
-                print("API OK")
+            switch response.statusCode {
+            case 200:
+                print("API OK, status: ", response.statusCode)
                 guard let data = data else {
                     print("API Get NO Data")
                     return
                 }
-                print("API Get Data successful")
-                completion(data)
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-//                    print("API Get Data successful")
-//                    completion(data)
-//                } catch {
-//                    print("API Get error", error.localizedDescription)
-//                }
-            } else {
-                print("API Fail", response.statusCode)
+//                print("API Get Data successful")
+//                completion(data)
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+                    print("API Get Data successful", json)
+                    completion(data, nil)
+                } catch {
+                    print("Error", error.localizedDescription)
+                    completion(nil, error)
+                }
+            case 304:
+                print("API Get Same Answer", response.statusCode)
+            default:
+                print("API Fail, status: ", response.statusCode)
             }
         }.resume()
-        
     }
 }
