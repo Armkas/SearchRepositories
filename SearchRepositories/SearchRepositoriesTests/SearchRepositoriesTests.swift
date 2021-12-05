@@ -9,6 +9,32 @@ import XCTest
 @testable import SearchRepositories
 
 class SearchRepositoriesTests: XCTestCase {
+    
+    let api = MockApi()
+    
+    func testMockResponse() {
+        
+        api.getRepositories(text: "ios") { repositories, error in
+            XCTAssertNil(error)
+            XCTAssertNotNil(repositories)
+            guard let total_count = repositories?.total_count else {
+                XCTFail()
+                return
+            }
+            XCTAssertEqual(1, total_count)
+            
+            guard let items = repositories?.items else {
+                XCTFail()
+                return
+            }
+            XCTAssertEqual(1, items.count)
+            
+            XCTAssertEqual(items[0].name, "Tetris")
+            XCTAssertEqual(items[0].full_name, "dtrupenn/Tetris")
+            XCTAssertEqual(items[0].html_url, "https://github.com/dtrupenn/Tetris")
+        }
+
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

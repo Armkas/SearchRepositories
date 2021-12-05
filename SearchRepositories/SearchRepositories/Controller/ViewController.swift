@@ -55,13 +55,12 @@ final class ViewController: UIViewController {
            let text = getKeyword(),
            text != lastSearchedText {
             isRequesting = true
-            API.shared.getRepositories(text: text) { data, error in
+            Api.shared.getRepositories(text: text) { [self] repositories, error in
                 self.lastSearchedText = text
                 self.isRequesting = false
 //                self.searchBar.text = text
-                if let data = data {
-                    let repositories = try? JSONDecoder().decode(Repositories.self, from: data)
-                    self.repositories = repositories?.items ?? []
+                if let repositories = repositories {
+                    self.repositories = repositories.items 
                     DispatchQueue.main.async { [self] in
                         self.tableView.reloadData()
                     }

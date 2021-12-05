@@ -7,11 +7,13 @@
 
 import Foundation
 
-final class API {
-    
-    static let shared = API()
-    
-    func getRepositories(text: String, completion: @escaping (Data?, Error?) -> Void)  {
+final class Api {
+    static let shared = Api()
+}
+
+extension Api: ApiProtocol {
+
+    func getRepositories(text: String, completion: @escaping (Repositories?, Error?) -> Void)  {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.github.com"
@@ -32,7 +34,7 @@ final class API {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             if let error = error {
-                print("API Error =", error.localizedDescription)//圏外
+                print("API Error =", error.localizedDescription)
                 completion(nil, error)
                 return
             }
@@ -48,18 +50,16 @@ final class API {
                     print("API Get NO Data")
                     return
                 }
-//                print("API Get Data successful")
-//                completion(data)
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-                    print("API Get Data successful", json)
-                    completion(data, nil)
+//                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
+//                    let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
+                    let repositories = try JSONDecoder().decode(Repositories.self, from: data)
+                    print("API Get Data successful")
+                    completion(repositories, nil)
                 } catch {
                     print("Error", error.localizedDescription)
                     completion(nil, error)
                 }
-            case 304:
-                print("API Get Same Answer", response.statusCode)
             default:
                 print("API Fail, status: ", response.statusCode)
             }

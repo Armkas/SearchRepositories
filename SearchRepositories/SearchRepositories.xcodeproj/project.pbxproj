@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CEB2481A275B8363001A1778 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB24819275B8363001A1778 /* Repositories.swift */; };
-		CEB2481D275CB8D4001A1778 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2481C275CB8D4001A1778 /* MockAPI.swift */; };
+		CEB2481D275CB8D4001A1778 /* MockApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB2481C275CB8D4001A1778 /* MockApi.swift */; };
 		CEB24821275CC631001A1778 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB24820275CC631001A1778 /* DataProvider.swift */; };
 		CEB24824275CFCEA001A1778 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB24823275CFCEA001A1778 /* UIViewController+Extension.swift */; };
+		CEB24826275D0194001A1778 /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB24825275D0194001A1778 /* ApiProtocol.swift */; };
+		CEB24872275D2CEB001A1778 /* MockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB24871275D2CEA001A1778 /* MockData.json */; };
 		CEDD55832757C567009F79F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55822757C567009F79F8 /* AppDelegate.swift */; };
 		CEDD55852757C567009F79F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55842757C567009F79F8 /* SceneDelegate.swift */; };
 		CEDD55872757C567009F79F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55862757C567009F79F8 /* ViewController.swift */; };
@@ -22,7 +24,7 @@
 		CEDD55A82757C56A009F79F8 /* SearchRepositoriesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55A72757C56A009F79F8 /* SearchRepositoriesUITests.swift */; };
 		CEDD55B62757D826009F79F8 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEDD55B52757D826009F79F8 /* Cell.xib */; };
 		CEDD55B82757D843009F79F8 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55B72757D843009F79F8 /* Cell.swift */; };
-		CEDD55BE2758E876009F79F8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55BD2758E876009F79F8 /* API.swift */; };
+		CEDD55BE2758E876009F79F8 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDD55BD2758E876009F79F8 /* Api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +46,11 @@
 
 /* Begin PBXFileReference section */
 		CEB24819275B8363001A1778 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
-		CEB2481C275CB8D4001A1778 /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
-		CEB2481E275CC4E1001A1778 /* MockResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockResponse.json; sourceTree = "<group>"; };
+		CEB2481C275CB8D4001A1778 /* MockApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApi.swift; sourceTree = "<group>"; };
 		CEB24820275CC631001A1778 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		CEB24823275CFCEA001A1778 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CEB24825275D0194001A1778 /* ApiProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
+		CEB24871275D2CEA001A1778 /* MockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
 		CEDD557F2757C567009F79F8 /* SearchRepositories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchRepositories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDD55822757C567009F79F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEDD55842757C567009F79F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +68,7 @@
 		CEDD55A92757C56A009F79F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEDD55B52757D826009F79F8 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		CEDD55B72757D843009F79F8 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		CEDD55BD2758E876009F79F8 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CEDD55BD2758E876009F79F8 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,8 +99,8 @@
 		CEB2481B275CB8BE001A1778 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				CEB2481C275CB8D4001A1778 /* MockAPI.swift */,
-				CEB2481E275CC4E1001A1778 /* MockResponse.json */,
+				CEB2481C275CB8D4001A1778 /* MockApi.swift */,
+				CEB24871275D2CEA001A1778 /* MockData.json */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -178,8 +181,9 @@
 		CEDD55BB2758E831009F79F8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CEDD55BD2758E876009F79F8 /* API.swift */,
+				CEDD55BD2758E876009F79F8 /* Api.swift */,
 				CEB24819275B8363001A1778 /* Repositories.swift */,
+				CEB24825275D0194001A1778 /* ApiProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB24872275D2CEB001A1778 /* MockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,8 +350,9 @@
 				CEDD55872757C567009F79F8 /* ViewController.swift in Sources */,
 				CEDD558D2757C567009F79F8 /* SearchRepositories.xcdatamodeld in Sources */,
 				CEDD55B82757D843009F79F8 /* Cell.swift in Sources */,
+				CEB24826275D0194001A1778 /* ApiProtocol.swift in Sources */,
 				CEDD55832757C567009F79F8 /* AppDelegate.swift in Sources */,
-				CEDD55BE2758E876009F79F8 /* API.swift in Sources */,
+				CEDD55BE2758E876009F79F8 /* Api.swift in Sources */,
 				CEDD55852757C567009F79F8 /* SceneDelegate.swift in Sources */,
 				CEB2481A275B8363001A1778 /* Repositories.swift in Sources */,
 			);
@@ -357,7 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB24821275CC631001A1778 /* DataProvider.swift in Sources */,
-				CEB2481D275CB8D4001A1778 /* MockAPI.swift in Sources */,
+				CEB2481D275CB8D4001A1778 /* MockApi.swift in Sources */,
 				CEDD559D2757C56A009F79F8 /* SearchRepositoriesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
