@@ -10,13 +10,20 @@ import Foundation
 
 final class ViewController: UIViewController {
     
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     private var timer: Timer?
     private var repositories: [Repository] = []
     private var lastSearchedText = ""
-    private var isRequesting: Bool = false // Wait for the server to respond before making the next request
+    private var isRequesting: Bool = false {
+        didSet {
+            DispatchQueue.main.async { [self] in
+                statusLabel.text = isRequesting ? "Searching..." : ""
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +58,7 @@ final class ViewController: UIViewController {
     }
     
     @objc func getRepositories() {
-        if !isRequesting,
+        if !isRequesting, // Wait for the server to respond before making the next request
            let text = getKeyword(),
            text != lastSearchedText {
             isRequesting = true

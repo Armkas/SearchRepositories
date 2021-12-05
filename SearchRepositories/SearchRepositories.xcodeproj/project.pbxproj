@@ -167,6 +167,7 @@
 				CEDD55842757C567009F79F8 /* SceneDelegate.swift */,
 				CEDD558E2757C569009F79F8 /* Assets.xcassets */,
 				CEDD55902757C569009F79F8 /* LaunchScreen.storyboard */,
+				CEDD55882757C567009F79F8 /* Main.storyboard */,
 				CEDD55932757C569009F79F8 /* Info.plist */,
 				CEDD558B2757C567009F79F8 /* SearchRepositories.xcdatamodeld */,
 			);
@@ -223,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				CEDD55BC2758E851009F79F8 /* Cell */,
-				CEDD55882757C567009F79F8 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";

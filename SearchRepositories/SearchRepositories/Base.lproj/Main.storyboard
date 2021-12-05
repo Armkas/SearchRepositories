@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKd-FR-VTv">
+                                <rect key="frame" x="207" y="84" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="uzQ-XW-FhW">
                                 <rect key="frame" x="0.0" y="94" width="414" height="50"/>
                                 <constraints>
@@ -31,18 +37,21 @@
                         <viewLayoutGuide key="safeArea" id="YLg-Qf-SV6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="uzQ-XW-FhW" firstAttribute="top" secondItem="YLg-Qf-SV6" secondAttribute="top" constant="50" id="4SB-gl-jBi"/>
                             <constraint firstItem="uzQ-XW-FhW" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" id="J0U-fn-3SW"/>
                             <constraint firstItem="mi0-hk-ro5" firstAttribute="leading" secondItem="YLg-Qf-SV6" secondAttribute="leading" constant="20" id="Jze-Sl-YAM"/>
-                            <constraint firstItem="uzQ-XW-FhW" firstAttribute="top" secondItem="YLg-Qf-SV6" secondAttribute="top" constant="50" id="Kxz-E5-8Eg"/>
+                            <constraint firstItem="uzQ-XW-FhW" firstAttribute="top" secondItem="xKd-FR-VTv" secondAttribute="bottom" constant="10" id="OJ0-DR-Q7f"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="uzQ-XW-FhW" secondAttribute="trailing" id="PYY-BN-gX0"/>
                             <constraint firstItem="mi0-hk-ro5" firstAttribute="top" secondItem="uzQ-XW-FhW" secondAttribute="bottom" id="TFm-38-5LV"/>
                             <constraint firstItem="uzQ-XW-FhW" firstAttribute="centerX" secondItem="YLg-Qf-SV6" secondAttribute="centerX" id="Tw1-Ox-NUw"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="bottom" secondItem="mi0-hk-ro5" secondAttribute="bottom" id="Wja-gf-hFF"/>
+                            <constraint firstItem="xKd-FR-VTv" firstAttribute="centerX" secondItem="YLg-Qf-SV6" secondAttribute="centerX" id="h5P-ti-5Ea"/>
                             <constraint firstItem="YLg-Qf-SV6" firstAttribute="trailing" secondItem="mi0-hk-ro5" secondAttribute="trailing" constant="20" id="mWZ-WN-o0D"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="uzQ-XW-FhW" id="ttJ-aB-6xr"/>
+                        <outlet property="statusLabel" destination="xKd-FR-VTv" id="WdP-h0-Lzo"/>
                         <outlet property="tableView" destination="mi0-hk-ro5" id="Ohy-b4-yao"/>
                     </connections>
                 </viewController>
@@ -54,6 +63,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
