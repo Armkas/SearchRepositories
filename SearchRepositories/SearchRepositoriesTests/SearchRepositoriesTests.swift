@@ -13,7 +13,6 @@ class SearchRepositoriesTests: XCTestCase {
     let api = MockApi()
     
     func testMockResponse() {
-        
         api.getRepositories(text: "ios") { repositories, error in
             XCTAssertNil(error)
             XCTAssertNotNil(repositories)
@@ -33,7 +32,16 @@ class SearchRepositoriesTests: XCTestCase {
             XCTAssertEqual(items[0].full_name, "dtrupenn/Tetris")
             XCTAssertEqual(items[0].html_url, "https://github.com/dtrupenn/Tetris")
         }
-
+        api.reset()
+    }
+    
+    func testMockResponseFailed() {
+        api.shouldReturnError = true
+        api.getRepositories(text: "ios") { repositories, error in
+            XCTAssertNotNil(error)
+            XCTAssertNil(repositories)
+        }
+        api.reset()
     }
 
     override func setUpWithError() throws {

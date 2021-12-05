@@ -10,11 +10,9 @@ import Foundation
 
 class MockApi {
     var shouldReturnError = false
-    var wasGot = false
     
     func reset() {
         shouldReturnError = false
-        wasGot = false
     }
         
     convenience init() {
@@ -29,9 +27,8 @@ class MockApi {
 
 extension MockApi: ApiProtocol {
     func getRepositories(text: String, completion: @escaping (Repositories?, Error?) -> Void) {
-        wasGot = true
         do {
-            let data = DataProvider.jsonData(from: "MockData")
+            let data = shouldReturnError ? DataProvider.jsonData(from: "MockNoDate") : DataProvider.jsonData(from: "MockData")
             let repositories: Repositories = try JSONDecoder().decode(Repositories.self, from: data!)
             completion(repositories, nil)
         } catch {
