@@ -14,24 +14,11 @@ final class Api {
 extension Api: ApiProtocol {
 
     func getRepositories(text: String, completion: @escaping (Repositories?, Error?) -> Void)  {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.github.com"
-        urlComponents.path = "/search/repositories"
-        urlComponents.queryItems = [
-            URLQueryItem(name: "q", value: "\(text)"),
-                        URLQueryItem(name: "sort", value: "desc"),
-                        URLQueryItem(name: "order", value: "best match"),
-                        URLQueryItem(name: "page", value: "1"),
-                        URLQueryItem(name: "per_page", value: "30"),
-        ]
-        guard let url = urlComponents.url else { return }
+        guard let url = Url.init(text).url else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
         
-        //        var request = URLRequest(url: url)
-        //        request.httpMethod = "GET"
-        //        request.allHTTPHeaderFields = nil
-
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if let error = error {
                 print("API Error =", error.localizedDescription)
@@ -51,8 +38,6 @@ extension Api: ApiProtocol {
                     return
                 }
                 do {
-//                    let jsonObject = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
-//                    let jsonData = try JSONSerialization.data(withJSONObject: data, options: [])
                     let repositories = try JSONDecoder().decode(Repositories.self, from: data)
                     print("API Get Data successful")
                     completion(repositories, nil)
