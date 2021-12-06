@@ -100,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CEAC9F7F275E5D41000F5DCC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CEDD55BD2758E876009F79F8 /* Api.swift */,
+				CEB24825275D0194001A1778 /* ApiProtocol.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		CEB2481B275CB8BE001A1778 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				CEB24885275D4277001A1778 /* Url.swift */,
-				CEDD55BD2758E876009F79F8 /* Api.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -158,16 +166,16 @@
 		CEDD55812757C567009F79F8 /* SearchRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				CEAC9F7F275E5D41000F5DCC /* Services */,
 				CEB24884275D425D001A1778 /* Extensions */,
 				CEB24822275CFCA3001A1778 /* Utilities */,
-				CEDD55BB2758E831009F79F8 /* Model */,
+				CEDD55BB2758E831009F79F8 /* Models */,
 				CEEA8B3D275A4A4E0078B8D4 /* View */,
 				CEEA8B3C275A4A460078B8D4 /* Controller */,
 				CEDD55822757C567009F79F8 /* AppDelegate.swift */,
 				CEDD55842757C567009F79F8 /* SceneDelegate.swift */,
 				CEDD558E2757C569009F79F8 /* Assets.xcassets */,
 				CEDD55902757C569009F79F8 /* LaunchScreen.storyboard */,
-				CEDD55882757C567009F79F8 /* Main.storyboard */,
 				CEDD55932757C569009F79F8 /* Info.plist */,
 				CEDD558B2757C567009F79F8 /* SearchRepositories.xcdatamodeld */,
 			);
@@ -194,13 +202,12 @@
 			path = SearchRepositoriesUITests;
 			sourceTree = "<group>";
 		};
-		CEDD55BB2758E831009F79F8 /* Model */ = {
+		CEDD55BB2758E831009F79F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				CEB24819275B8363001A1778 /* Repositories.swift */,
-				CEB24825275D0194001A1778 /* ApiProtocol.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CEDD55BC2758E851009F79F8 /* Cell */ = {
@@ -223,6 +230,7 @@
 		CEEA8B3D275A4A4E0078B8D4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEDD55882757C567009F79F8 /* Main.storyboard */,
 				CEDD55BC2758E851009F79F8 /* Cell */,
 			);
 			path = View;
