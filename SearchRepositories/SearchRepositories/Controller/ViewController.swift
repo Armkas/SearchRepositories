@@ -43,7 +43,7 @@ final class ViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        searchBar.keyboardType = .webSearch
+        searchBar.keyboardType = .webSearch // BecauseThe Github repository name must be English
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
 //        searchBar.isSearchResultsButtonSelected = true

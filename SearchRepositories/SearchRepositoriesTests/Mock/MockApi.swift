@@ -28,7 +28,7 @@ class MockApi {
 extension MockApi: ApiProtocol {
     func getRepositories(text: String, completion: @escaping (Repositories?, Error?) -> Void) {
         do {
-            let data = shouldReturnError ? DataProvider.jsonData(from: "MockNoDate") : DataProvider.jsonData(from: "MockData")
+            let data = shouldReturnError ? DataProvider.jsonData(from: "MockNoData") : DataProvider.jsonData(from: "MockData")
             let repositories: Repositories = try JSONDecoder().decode(Repositories.self, from: data!)
             completion(repositories, nil)
         } catch {
