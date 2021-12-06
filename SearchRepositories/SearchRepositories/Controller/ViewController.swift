@@ -13,6 +13,7 @@ final class ViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewBottomConstraint: NSLayoutConstraint!
     
     private var timer: Timer?
     private var repositories: [Repository] = []
@@ -24,12 +25,21 @@ final class ViewController: UIViewController {
             }
         }
     }
+    private var isKeyboardShow = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupSearchBar()
         setupTableView()
+        setupNotification()
+    }
+    
+    private func setupNotification() {
+        // Change the tableView height to prevent coverd by the keyboard
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidChangeFrame), name: UIResponder.keyboardDidChangeFrameNotification, object: nil)
     }
     
     private func setupSearchBar() {
@@ -77,6 +87,39 @@ final class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc private func keyboardWillShow(notification: Notification) {
+        guard !isKeyboardShow else { return }
+        isKeyboardShow = true
+        updateKeyboardHeight(notification: notification)
+    }
+    
+    @objc private func keyboardWillHide(notification: Notification) {
+        guard isKeyboardShow else { return }
+        isKeyboardShow = false
+        updateKeyboardHeight(notification: notification)
+    }
+    
+    @objc private func keyboardDidChangeFrame(notification: Notification) {
+        guard isKeyboardShow else { return }
+        updateKeyboardHeight(notification: notification)
+    }
+    
+    private func updateKeyboardHeight(notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        let duration : TimeInterval = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
+        let keyboardHeight: CGFloat = {
+            if isKeyboardShow {
+                return (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size.height
+            } else {
+                return 0
+            }
+        }()
+        UIView.animate(withDuration: duration, animations: {
+            self.view.layoutIfNeeded()
+        })
+        tableViewBottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
     }
 }
 
