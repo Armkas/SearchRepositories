@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import Network
 
 final class ViewController: UIViewController {
     
@@ -18,14 +19,36 @@ final class ViewController: UIViewController {
     private var timer: Timer?
     private var repositories: [Repository] = []
     private var lastSearchedText = ""
+    private var isOnline: Bool = true {
+        didSet {
+            DispatchQueue.main.async { [self] in
+                if isOnline {
+                    searchBar.isUserInteractionEnabled = true
+                    statusLabel.text = "All Ready!"
+                    statusLabel.textColor = .systemGreen
+                } else {
+                    searchBar.isUserInteractionEnabled = false
+                    statusLabel.text = "You are offline please check the network"
+                    statusLabel.textColor = .systemRed
+                }
+            }
+        }
+    }
     private var isRequesting: Bool = false {
         didSet {
             DispatchQueue.main.async { [self] in
-                statusLabel.text = isRequesting ? "Searching..." : ""
+                if isRequesting {
+                    statusLabel.text = "Searching..."
+                    statusLabel.textColor = .systemYellow
+                } else {
+                    statusLabel.text = "All Ready!"
+                    statusLabel.textColor = .systemGreen
+                }
             }
         }
     }
     private var isKeyboardShow = false
+    let monitor = NWPathMonitor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +56,7 @@ final class ViewController: UIViewController {
         setupSearchBar()
         setupTableView()
         setupNotification()
+        setupNetWorkMonitor()
     }
     
     private func setupNotification() {
@@ -76,13 +100,15 @@ final class ViewController: UIViewController {
                 self.lastSearchedText = text
                 self.isRequesting = false
                 if let repositories = repositories {
-                    self.repositories = repositories.items 
+                    self.repositories = repositories.items
                     DispatchQueue.main.async { [self] in
                         self.tableView.reloadData()
                     }
                 }
                 if let error = error {
-                    self.showToast(error.localizedDescription)
+                    DispatchQueue.main.async { [self] in
+                        self.showToast(error.localizedDescription)
+                    }
                 }
             }
         }
@@ -119,6 +145,14 @@ final class ViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
         tableViewBottomConstraint.constant = keyboardHeight - self.view.safeAreaInsets.bottom
+    }
+    
+    private func setupNetWorkMonitor() {
+        monitor.pathUpdateHandler = { [self] path in
+            isOnline = path.status == .satisfied
+        }
+        let queue = DispatchQueue(label: "InternetConnectionMonitor")
+        monitor.start(queue: queue)
     }
 }
 
