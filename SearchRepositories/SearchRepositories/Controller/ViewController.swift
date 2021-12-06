@@ -67,12 +67,9 @@ final class ViewController: UIViewController {
     }
     
     private func setupSearchBar() {
-        searchBar.keyboardType = .webSearch // BecauseThe Github repository name must be English
+        searchBar.keyboardType = .webSearch // Because Github repository name must be English
         searchBar.delegate = self
         searchBar.autocapitalizationType = .none
-//        searchBar.isSearchResultsButtonSelected = true
-//        searchBar.showsSearchResultsButton = true
-//        searchBar.showsCancelButton = true
     }
     
     private func setupTableView() {
@@ -92,7 +89,7 @@ final class ViewController: UIViewController {
     }
     
     @objc func getRepositories() {
-        if !isRequesting, // Wait for the server to respond before making the next request
+        if !isRequesting, // Waiting for the server to respond before making the next request
            let text = getKeyword(),
            text != lastSearchedText {
             isRequesting = true
