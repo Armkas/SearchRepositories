@@ -27,9 +27,11 @@ class Cell: UITableViewCell {
         self.urlString = repository.html_url
     }
     
-    func openUrl() {
+    func openUrl(callBack: () -> Void) {
+        // Open url by Safari
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
+            callBack()
         }
     }
 }

@@ -75,7 +75,6 @@ final class ViewController: UIViewController {
             Api.shared.getRepositories(text: text) { [self] repositories, error in
                 self.lastSearchedText = text
                 self.isRequesting = false
-//                self.searchBar.text = text
                 if let repositories = repositories {
                     self.repositories = repositories.items 
                     DispatchQueue.main.async { [self] in
@@ -128,7 +127,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         timer?.invalidate()
         timer = Timer.scheduledTimer(
-            timeInterval: 0.5,
+            timeInterval: 0.5, // Stop editing for more than 0.5 seconds before requesting the API
             target: self,
             selector: #selector(self.getRepositories),
             userInfo: nil,
@@ -153,7 +152,9 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell: Cell = tableView.cellForRow(at: indexPath) as? Cell {
-            cell.openUrl()
+            cell.openUrl {
+                self.searchBar.text = lastSearchedText // When open successfully, corrects the entered text in the search box
+            }
         }
     }
 }
